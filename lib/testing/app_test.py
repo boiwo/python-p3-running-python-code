@@ -2,7 +2,7 @@
 
 from os import path
 import runpy
-import io
+from io import BytesIO as StringIO
 import sys
 
 class TestAppPy:
@@ -25,7 +25,7 @@ class TestAppPy:
         '''
         prints "Hello World! Pass this test, please."
         '''
-        captured_out = io.StringIO()
+        captured_out = StringIO()
         sys.stdout = captured_out
         runpy.run_path("lib/app.py")
         sys.stdout = sys.__stdout__
